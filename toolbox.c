@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int compt (char * var){
     int i;
     i=0;
@@ -44,5 +46,48 @@ void mirror(char * var){
 
     for (i=0; i<res; i++){
         var[i]=tab[i];
+    }
+}
+
+int palindrome(char * var){
+    int a;
+    int i;
+    int test;
+    int res;
+
+    a=0;
+    test=1;
+    res=compt(var);
+    printf("%d\n",res);
+    for (i=res-1; i>=res/2; i--){
+        if (var[a] != var[i])
+            test=0;
+        a++;
+    }
+    return test;
+}
+
+void chiffrement(char * var, int nbr){
+    
+    int i;
+    int res;
+    int erreur;
+
+    erreur=0;
+    res=compt(var);
+    printf("%d\n",res);
+    for (i=0; i<res; i++){
+        if (var[i]<'a' || var[i]>'z'){
+            erreur=1;
+        }
+    }
+    if (erreur==0){
+        for (i=0; i<res; i++){
+            var[i]=var[i]+nbr;
+            if (var[i]>'z')
+                var[i]='a'+var[i]-'z';
+            else if (var[i]<'a')
+                var[i]='z'-var[i]-'a';
+        }
     }
 }
