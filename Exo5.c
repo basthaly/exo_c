@@ -8,18 +8,15 @@ int main(int argc, char *argv[]){
     int res;
     int i;
 
-    printf("%s\n",argv[1]);
-    res=0;
     while (argv[1][res]!='\0'){
         res++;
     }
 
-    printf("res : %d\n",res);
     for (i=0; i<res; i++){
         message[i]=argv[1][i];
     }
 
-    printf("oui : %s\n",message);
+    printf("%s\n",message);
     mirror(message);
-    printf("oui : %s\n",message);
+    printf("%s\n",message);
 }
