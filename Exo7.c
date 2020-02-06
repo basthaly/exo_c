@@ -7,17 +7,17 @@ int main(int argc, char *argv[]){
     unsigned char b;
     int test;
     
-    message[0]= 'k' ;
-    message[1]= 'a' ;
-    message[2]= 'y' ;
-    message[3]= 'a' ;
-    message[4]= 'k' ;
+    message[0]= 'a' ;
+    message[1]= 'b' ;
+    message[2]= 'c' ;
+    message[3]= 'd' ;
+    message[4]= 'e' ;
     message[5]= '\0' ;
 
     printf("%s\n",message);
     chiffrement(message,1);
     printf("%s\n",message);
-    chiffrement(message,-1);
+    dechiffrement(message);
     printf("%s\n",message);
 
 }

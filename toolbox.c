@@ -75,7 +75,6 @@ void chiffrement(char * var, int nbr){
 
     erreur=0;
     res=compt(var);
-    printf("%d\n",res);
     for (i=0; i<res; i++){
         if (var[i]<'a' || var[i]>'z'){
             erreur=1;
@@ -85,9 +84,36 @@ void chiffrement(char * var, int nbr){
         for (i=0; i<res; i++){
             var[i]=var[i]+nbr;
             if (var[i]>'z')
-                var[i]='a'+var[i]-'z';
+                var[i]='a'+var[i]%'z';
             else if (var[i]<'a')
-                var[i]='z'-var[i]-'a';
+                var[i]='z'+'a'%var[i];
+        }
+        var[res+1]=-nbr;
+    }
+}
+
+void dechiffrement(char * var){
+    int res;
+    int nbr;
+    int i;
+    int erreur;
+
+    res=compt(var);
+    nbr=var[res+1];
+    erreur=0;
+
+    for (i=0; i<res; i++){
+        if (var[i]<'a' || var[i]>'z'){
+            erreur=1;
+        }
+    }
+    if (erreur==0){
+        for (i=0; i<res; i++){
+            var[i]=var[i]+nbr;
+            if (var[i]>'z')
+                var[i]='a'+var[i]%'z';
+            else if (var[i]<'a')
+                var[i]='z'+'a'%var[i];
         }
     }
 }

@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "toolbox.h": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
