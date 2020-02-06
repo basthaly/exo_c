@@ -1,22 +1,32 @@
 #include <stdio.h>
 
-void test(int *pa, int *res)
-{
-    while (*pa<=5){
-        printf("%d * %d = %d\n",*res, *res+1, *res * *(res+1));
-        *res=*res * *(res+1);
-        *pa=*pa+1;
-        test(pa, res);
+void boucle(int *pa, int *res, int var)
+    {
+        while (*pa<=var){
+            printf("%d : %d\n",*pa, *res * *(res+1));
+            *res=*res * *(res+1);
+            *pa=*pa+1;
+            boucle(pa, res, var);
+        }
     }
-}
 
-
-int main(void)
-{
+int factoriel(int var){
     int a;
     int res;
     a=1;
     res=1;
-    test(&a,&res);
-    printf("res = %d\n", res);
+
+    boucle(&a,&res,var);
+    return res;
+}
+
+
+int main(int argc, char *argv[])
+{
+    int res;
+    int arg;
+
+    arg=atoi(argv[1]);
+    res=factoriel(arg);
+    printf("resultat pour N=%d éléments : %d\n",arg, res);
 }
