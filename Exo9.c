@@ -1,22 +1,12 @@
 #include <stdio.h>
 
-void boucle(int *pa, int *res, int var)
-    {
-        while (*pa<=var){
-            printf("%d : %d\n",*pa, *res * *(res+1));
-            *res=*res * *(res+1);
-            *pa=*pa+1;
-            boucle(pa, res, var);
-        }
-    }
-
 int factoriel(int var){
     int a;
     int res;
-    a=1;
     res=1;
-
-    boucle(&a,&res,var);
+    for ( a=0; a <var; a++ ){
+        res=res+res*a;
+    }
     return res;
 }
 

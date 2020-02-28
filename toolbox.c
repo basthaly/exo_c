@@ -58,7 +58,6 @@ int palindrome(char * var){
     a=0;
     test=1;
     res=compt(var);
-    printf("%d\n",res);
     for (i=res-1; i>=res/2; i--){
         if (var[a] != var[i])
             test=0;

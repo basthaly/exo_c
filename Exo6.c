@@ -16,5 +16,9 @@ int main(int argc, char *argv[]){
 
     printf("%s\n",message);
     test=palindrome(message);
-    printf("%d\n",test);
+    if ( test == 1 )
+        printf("Le message est un palindrome\n");
+    else
+        printf("Le message n'est pas un palindrome\n");
+    
 }
