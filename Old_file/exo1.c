@@ -15,4 +15,3 @@ int main(){
     res=compt(message);
     printf("Il y a %d caractère\n",res);
 }
-
