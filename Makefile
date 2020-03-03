@@ -1,8 +1,8 @@
 CC=gcc
 CFLAGS=-c -Wall
 LDFLAGS=-o
-file=toolbox.o exo2.o
-name=exo2
+file=main.o
+name=main
 
 all : $(name)
 
