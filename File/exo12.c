@@ -2,45 +2,45 @@
 #include "stdlib.h"
 #include "time.h"
 
-void Partionnement(int* tab, int var_tab){
+void Quicksort(int* tab, int fin, int deb){
     
-    int i=0;
-    int j=var_tab-1;
-    int max=var_tab-1;
-    int booleen = 1;
+    int asc=deb;
+    int desc=fin;
+    int max=fin;
+    int booleen = 1; // if boolean = 1 asc monte sinon desc descend
     int temp;
 
-    while ( i != j ) {
-        printf("i : %d | j : %d\n",i,j);
+    if (fin-deb < 1){
+        return ;
+    }
+
+    while ( asc != desc ) {
+        // printf("asc : %d | desc : %d\n",asc,desc);
         if (booleen){
-            if ( tab[i]>tab[max] )
+            if ( tab[asc]>tab[max] )
                 booleen=0;
             else
-                i++;
+                asc++;
         }
         else {
-            if (tab[j]<tab[max]) {
+            if (tab[desc]<tab[max]) {
             booleen=1;
-            temp=tab[j];
-            tab[j]=tab[i];
-            tab[i]=temp;
+            temp=tab[desc];
+            tab[desc]=tab[asc];
+            tab[asc]=temp;
             }
             else
-                j--;
+                desc--;
         }
     }
-    for (i=max; i>j; i-- ){
-        temp=tab[i];
-        tab[i]=tab[i-1];
-        tab[i-1]=temp;
+    for (asc=max; asc>desc; asc-- ){
+        temp=tab[asc];
+        tab[asc]=tab[asc-1];
+        tab[asc-1]=temp;
     }
 
-}
-
-void QuickSort(int var_tab, int* tab){
-
-    Partionnement(tab,var_tab);
-
+    Quicksort(tab, desc-1, deb);
+    Quicksort(tab, fin, desc+1);
 }
 
 int main(int argc, char *argv[]) {
@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
     }
     printf("\n");
 
-    QuickSort(var_tab,tab);
+    Quicksort(tab, var_tab-1, 0);
 
     for (i=0; i<var_tab; i++){
         printf("| %d |",tab[i]);
